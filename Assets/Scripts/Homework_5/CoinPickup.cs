@@ -4,11 +4,11 @@ public class CoinPickup : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Столкновение с: " + other.gameObject.name);
+        CoinCounter counter = other.GetComponent<CoinCounter>();
         
-        if (other.GetComponent<PlayerMovement>() != null)
+        if (counter != null)
         {
-            Debug.Log("Монетка собрана!");
+            counter.AddCoin();
             Destroy(gameObject);
         }
     }
