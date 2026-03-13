@@ -11,7 +11,6 @@ public class EnemyAnimator : MonoBehaviour
         _animator = GetComponent<Animator>();
         _agent = GetComponentInParent<NavMeshAgent>();
         
-        Debug.Log($"Animator: {_animator}, Agent: {_agent}");
     }
 
     private void Update()
@@ -19,7 +18,6 @@ public class EnemyAnimator : MonoBehaviour
         if (_animator == null || _agent == null) return;
 
         float speed = _agent.velocity.magnitude;
-        Debug.Log($"Enemy speed: {speed}");
         _animator.SetFloat("Speed", speed, 0.05f, Time.deltaTime);
     }
 }
