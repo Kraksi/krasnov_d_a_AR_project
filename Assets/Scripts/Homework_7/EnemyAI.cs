@@ -26,4 +26,13 @@ public class EnemyAI : MonoBehaviour
                 _agent.SetDestination(Player.position);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.GetComponent<PlayerClick>() != null)
+        {
+            GameManager.Instance.GameOver();
+        }
+    }
+
 }
