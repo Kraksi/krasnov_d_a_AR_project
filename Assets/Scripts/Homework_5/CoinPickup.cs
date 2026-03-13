@@ -3,18 +3,20 @@ using UnityEngine;
 public class CoinPickup : MonoBehaviour
 {
     public AudioClip PickupSound;
-    public float Volume = 1f;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerMovement>() != null || 
-            other.GetComponent<PlayerClick>() != null)
+        if (other.GetComponent<PlayerClick>() != null)
         {
+            GameManager.Instance.AddScore(1);
 
             if (PickupSound != null)
-                AudioSource.PlayClipAtPoint(PickupSound, transform.position, Volume);
+                AudioSource.PlayClipAtPoint(PickupSound, transform.position);
 
-            Debug.Log("Монетка собрана!");
+            CoinSpawner spawner = FindObjectOfType<CoinSpawner>();
+            if (spawner != null)
+                spawner.SpawnCoin();
+
             Destroy(gameObject);
         }
     }
