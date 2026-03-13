@@ -99,4 +99,4 @@ InitTestScene*.unity*
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
-/Assets/GaussianAssets/garden-point_cloud-iteration_30000-point_cloud_shs.bytes
+/Assets/GaussianAssets/*.bytes
